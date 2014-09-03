@@ -2,10 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   get 'static_pages/index'
-  #devise_for :users, path_names: { sign_up: "register" }
-  
-  # devise_for :users, path_names: { sign_in: "login" }
-  # devise_for :users, :path_names => { :sign_up => "register" }
+
   root to: "static_pages#index"
 
   devise_scope :user do
