@@ -1,0 +1,28 @@
+<div class="row">
+	<div class="col-md-9">
+		<div class="article-show-box normal-box">
+			<div class="title">
+				<%= @article.title %>
+			</div>
+			<div class="info">
+				<a href="#"><%= @article.user.username %></a> 发表于 <%= time_ago_in_words @article.created_at %>, 
+				<span class="glyphicon glyphicon-comment"></span> 12 
+				<span class="glyphicon glyphicon-eye-open"></span> 14
+			</div>
+			<article class="article-body">
+				<%= @article.body %>
+			</article>
+		</div>
+	</div>
+	<div class="col-md-3">
+		<div class="article-related-box normal-box">
+			<div class="title">
+				相关分享
+			</div>
+			<p><a href="#">test</a></p>
+			<p><a href="#">second</a></p>
+			<p><a href="#">last</a></p>
+		</div>
+	</div>
+
+</div>

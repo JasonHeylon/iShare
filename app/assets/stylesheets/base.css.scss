@@ -1,6 +1,88 @@
 
+
 body{
-	background-image: image_url('apple_bg.png');
+	background-image: image_url('light-wool-bg.png'); //apple-bg
 	background-repeat: repeat;
-	background-color: #ECEEF0;
+	background-color: #ECEEF0;	
 }
+
+#content{
+	min-height: 600px;
+	padding-top: 20px;
+}
+
+
+.normal-box{
+	border-radius: 4px;
+	border: 1px solid #e1e1e1;
+	background-color: #fff;
+	padding: 15px;
+}
+.no-point-list{
+	list-style:none;
+}
+.no-space-list{
+	margin: 0px;
+	padding: 0px;
+	.li{
+		margin: 0px;
+		padding: 0px;
+	}
+}
+
+.shadow-box{
+	-webkit-box-shadow: 0px 1px 8px 1.5px rgba(0, 0, 0, 0.25), 0px 20px 70px 8px rgba(0, 0, 0, 0.05);
+	-moz-box-shadow: 0px 1px 8px 1.5px rgba(0, 0, 0, 0.25), 0px 20px 70px 8px rgba(0, 0, 0, 0.05);
+	-ms-box-shadow: 0px 1px 8px 1.5px rgba(0, 0, 0, 0.25), 0px 20px 70px 8px rgba(0, 0, 0, 0.05);
+	-o-box-shadow: 0px 1px 8px 1.5px rgba(0, 0, 0, 0.25), 0px 20px 70px 8px rgba(0, 0, 0, 0.05);
+	box-shadow: 0px 1px 8px 1.5px rgba(0, 0, 0, 0.25), 0px 20px 70px 8px rgba(0, 0, 0, 0.05);
+}
+
+
+.alert-notice {
+	color: #3a87ad;
+	background-color: #d9edf7;
+	border-color: #bce8f1;
+}
+
+.alert-info {
+	color: #3a87ad;
+	background-color: #d9edf7;
+	border-color: #bce8f1;
+}
+.alert{
+	background-color: #fcf8e3;
+	border-color: #fbeed5;
+	color: #c09853;
+}
+
+
+
+//bootstrap start
+
+//#008fd1
+
+.navbar-custom {
+    background-color:#008fd1;
+    color:#ffffff;
+    border-radius:0;
+}
+
+.navbar-custom .navbar-nav > li > a {
+    color:#fff;
+}
+.navbar-custom .navbar-nav > .active > a, .navbar-nav > .active > a:hover, .navbar-nav > .active > a:focus {
+    color: #ffffff;
+    background-color:transparent;
+}
+.navbar-custom .navbar-brand {
+    color:#fff;
+}
+.navbar-custom .navbar-nav > li > a:hover, .nav > li > a:focus {    
+		text-decoration: none;    
+		background-color: #007fc1; 
+} 
+
+
+
+//bootstrap end

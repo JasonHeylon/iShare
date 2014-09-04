@@ -21,3 +21,58 @@
 
 en:
   hello: "Hello world"
+    # Used in distance_of_time_in_words(), distance_of_time_in_words_to_now(), time_ago_in_words()
+  datetime:
+    distance_in_words:
+      half_a_minute: "刚刚"
+      less_than_x_seconds:
+        one:   "刚刚"
+        other: "刚刚"
+      x_seconds:
+        one:   "刚刚"
+        other: "刚刚"
+      less_than_x_minutes:
+        one:   "大约1 分钟前"
+        other: "大约%{count} 分钟前"
+      x_minutes:
+        one:   "1 分钟前"
+        other: "%{count} 分钟前"
+      about_x_hours:
+        one:   "大约 1 小时前"
+        other: "大约 %{count} 小时前"
+      x_days:
+        one:   "1 天前"
+        other: "%{count} 天前"
+      about_x_months:
+        one:   "大约 1 一月前"
+        other: "大约 %{count} 月前"
+      x_months:
+        one:   "1 月前"
+        other: "%{count} 月前"
+      about_x_years:
+        one:   "大约 1 年前"
+        other: "大约 %{count} 年前"
+      over_x_years:
+        one:   "1 年以前"
+        other: "%{count} 年以前"
+      almost_x_years:
+        one:   "将近 1 年前"
+        other: "将近 %{count} 年前"
+    prompts:
+      year:   "年"
+      month:  "月"
+      day:    "日"
+      hour:   "时"
+      minute: "分钟"
+      second: "秒"
+
+  helpers:
+    select:
+      # Default value for :prompt => true in FormOptionsHelper
+      prompt: "请选择"
+
+    # Default translation keys for submit and button FormHelper
+    submit:
+      create: '创建 %{model}'
+      update: '更新 %{model}'
+      submit: '保存 %{model}'

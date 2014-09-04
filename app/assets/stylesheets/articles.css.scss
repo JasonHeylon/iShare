@@ -1,0 +1,78 @@
+// Place all the styles related to the Articles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.article-related-box,
+.article-help-box,
+.tag-list-box,
+.cate-list-box{
+	.title{
+		font-size: 16px;
+		border-bottom: 2px solid #ddd;
+		margin-bottom: 4px;
+	}
+	li{
+		height:25px;
+		line-height: 25px;
+	}
+}
+
+.tag-list-box{
+	margin-top: 25px;
+}
+
+
+
+
+
+.article-list-box{
+
+	.control-bar{
+		line-height:35px;
+		height:35px;
+	};
+	
+	.article-list{
+
+		.article-item{
+			border-bottom: 1px solid #e1e1e1;
+			margin-bottom: 15px;
+			padding-bottom: 5px;
+			.title{
+				font-size:16px;
+			};
+			.info{
+				text-align: right;
+				color: #888;
+			};
+		};
+
+	}
+
+}
+
+.article-show-box{
+
+	.title{
+		height: 45px;
+		line-height: 45px;
+		font-size: 24px;
+		border-bottom: 1px dashed #e1e1e1;
+	}
+	.info{
+		text-align: right;
+		font-size: 12px;
+		color: #aaa;
+		line-height: 25px;
+		height: 25px;
+	}
+	article{
+
+	}
+
+}
+	
+
+
+
+

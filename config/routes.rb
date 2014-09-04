@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  get 'static_pages/index'
 
   root to: "static_pages#index"
 
@@ -9,6 +8,10 @@ Rails.application.routes.draw do
     match "login", to: "devise/sessions#new", via: :get, as: :login
     match 'register', to: "devise/registrations#new", via: :get, as: :register
   end
+
+  resources :articles
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
