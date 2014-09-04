@@ -2,31 +2,11 @@
 <div class="row">
 	<div class="col-md-9">
 		<div class="article-box normal-box form-group">
-			<%= form_for @article do |f| %>
-				<p>
-					<%= f.label :title, "标题(必填，小于50字符)"  %><br />
-					<%= f.text_field :title, class: "form-control" %>
-				</p>
-				<p>
-					<%= f.label :body, "文章内容/描述(必填，大于10字符)" %> <br />
-					<%= f.text_area :body , class: "form-control", rows: "10" %>
-				</p>
-				<p>
-					<%= f.submit "保存", class: "btn btn-success" %>
-				</p>
-
-			<% end %>
+			<%= render 'form' %>
 		</div>
 	</div>
 	<div class="col-md-3">
-		<div class="article-help-box normal-box">
-			<div class="title">
-				分享说明
-			</div>
-			<p>1. 第一个说明</p>
-			<p>2. 第二个说明</p>
-			<p>3. 最后一个说明</p>
-		</div>
+		<%= render 'shared/editor_helper' %>		
 	</div>
 
 </div>

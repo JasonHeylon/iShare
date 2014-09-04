@@ -1,0 +1,24 @@
+<%= form_for @article do |f| %>
+				<p>
+					<%= f.label :title, "标题(必填，小于50字符)"  %><br />
+					<%= f.text_field :title, class: "form-control" %>
+				</p>
+				<p>
+					<%= f.label :body, "文章内容/描述(必填，大于10字符)" %> <br />
+					<%= f.text_area :body , class: "form-control", rows: "10" %>
+				</p>
+				<p>
+					<%= f.label :category, "分类" %> <br />
+					<%#= f. %>
+					<%= collection_select(:article, :category_id, Category.all, :id, :name, {}, {:class => 'form-control'}) %>
+				</p>
+				<p>
+					<%= f.label :tag_list, "标签（可选，用逗号间隔）" %><br />
+					<%= f.text_field :tag_list, "data-role" => "tagsinput" %>
+				</p>
+				<br />
+				<p>
+					<%= f.submit "保存", class: "btn btn-success" %>
+				</p>
+
+			<% end %>

@@ -1,15 +1,35 @@
 Rails.application.routes.draw do
 
+  get 'comments/create'
+
+  get 'comments/new'
+
   devise_for :users
 
-  root to: "static_pages#index"
+  root to: "articles#index"
+
 
   devise_scope :user do
     match "login", to: "devise/sessions#new", via: :get, as: :login
     match 'register', to: "devise/registrations#new", via: :get, as: :register
   end
 
-  resources :articles
+  resources :articles do
+
+    match "/tags/:tag_name", to: "tags#show", via: :get, as: :tag, on: :collection
+
+
+    resources :comments, only: [:create, :edit, :update, :destroy]
+
+    # match "/comments", to: "comments#create", via: :post, as: :comment, on: :member
+
+    
+    # match "/comments/:comment_id/edit", to: "comments#edit", via: :get, as: :edit_comment, on: :member
+    # match "/comments/:comment_id", to: "comments#update", via: :patch, as: :update_comment, on: :member
+    # match "/comments/:comment_id", to: "comments#destroy", via: :delete, as: :destroy_comment, on: :member
+  end
+
+  resources :categories
 
 
 

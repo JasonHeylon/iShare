@@ -1,0 +1,35 @@
+<div class="row">
+
+	<div class="col-md-9">
+		<div class="article-list-box normal-box">
+			<div class="control-bar">
+				<div class="list-title pull-left">
+					标签： <%= @tag_name %>
+				</div>
+				<div class="pull-right">
+					<%= link_to raw("<span class='glyphicon glyphicon-edit'></span> 发表分享"), new_article_path, class: "btn btn-primary" %>
+				</div>
+			</div>
+
+			<%= render "articles/articles" %>
+
+
+
+		</div>
+	</div>
+
+	<div class="col-md-3">
+
+		<%= render 'shared/cate_list' %>
+
+
+		<%= render 'shared/tag_list' %>
+
+
+
+
+	</div>
+
+
+
+</div>

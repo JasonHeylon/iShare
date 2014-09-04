@@ -24,9 +24,14 @@ body{
 .no-space-list{
 	margin: 0px;
 	padding: 0px;
-	.li{
+	li{
 		margin: 0px;
 		padding: 0px;
+	}
+}
+.ho-list{
+	li{
+		float: left;
 	}
 }
 
@@ -56,7 +61,13 @@ body{
 	color: #c09853;
 }
 
+.clear{
+	 clear: both;
+}
+.center{
 
+	text-align: center;
+}
 
 //bootstrap start
 
@@ -83,6 +94,37 @@ body{
 		background-color: #007fc1; 
 } 
 
-
-
 //bootstrap end
+
+
+
+footer{
+	margin-top: 15px;
+	text-align: center;
+}
+
+
+
+// devise
+.regiseter-box{
+
+	h2{
+		border-bottom: 1px solid #e1e1e1;
+	}
+}
+
+
+
+// devise end
+
+
+#error_explanation{
+	h2{
+		font-size: 14px;
+	}
+	color: red;
+}
+
+
+
+

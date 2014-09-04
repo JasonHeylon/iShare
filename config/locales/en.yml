@@ -19,8 +19,12 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
+
 en:
-  hello: "Hello world"
+  will_paginate:
+    previous_label: "&#8592; 上一页"
+    next_label: "下一页 &#8594;"
+    page_gap: "&hellip;"
     # Used in distance_of_time_in_words(), distance_of_time_in_words_to_now(), time_ago_in_words()
   datetime:
     distance_in_words:
@@ -76,3 +80,17 @@ en:
       create: '创建 %{model}'
       update: '更新 %{model}'
       submit: '保存 %{model}'
+
+
+  activerecord:
+    models:
+      user: "用户"
+    attributes:
+      user:
+        username:  "用户名"
+        email:  "登录邮箱"
+        password: "密码"
+        current_password: "当前密码"
+    errors:
+      messages:
+        blank:      '不能为空'

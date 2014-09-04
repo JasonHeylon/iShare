@@ -1,0 +1,20 @@
+<div class="article-list">
+	<% @articles.each do |article| %>
+		<div class="article-item ">
+			<div class="title">
+				<%= link_to article.title, article %>
+			</div>
+			<div class="info">
+				<a href="#"><%= article.user.username %></a> 发表于 <%= time_ago_in_words article.created_at %>,  
+				<span class="glyphicon glyphicon-comment"></span> <%= article.comment_threads.size %> 
+				<span class="glyphicon glyphicon-eye-open"></span> <%= article.read_count %>
+			</div>
+		</div>
+	<% end %>
+
+</div>
+<!-- article-list end -->
+
+<div class="center">
+	<%= will_paginate @articles %>
+</div>

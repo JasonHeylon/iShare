@@ -1,91 +1,37 @@
 <div class="row">
-	<div class="col-md-3">
 
-		<div class="cate-list-box normal-box">
-			<div class="title">
-				分类
-			</div>
-			<ul class="cate-list no-point-list no-space-list">
-				<li>
-					<a href="">SharePoint <span class="label label-primary ">42</span></a>
-				</li>
-				<li>
-					<a href="">分类一 <span class="label label-primary">42</span></a>
-				</li>
-				<li>
-					<a href="">分类一 <span class="label label-primary">42</span></a>
-				</li>
-				<li>
-					<a href="">分类一 <span class="label label-primary">42</span></a>
-				</li>
-			</ul>
-		</div>
-
-		<div class="tag-list-box normal-box">
-			<div class="title">
-				标签
-			</div>
-			<ul class="tag-list no-point-list no-space-list">
-				<li>
-					<a href="">SharePoint</a>
-				</li>
-				<li>
-					<a href="">分类一</a>
-				</li>
-				<li>
-					<a href="">分类一</a>
-				</li>
-				<li>
-					<a href="">分类一</a>
-				</li>
-			</ul>
-		</div>
-
-
-	</div>
 	<div class="col-md-9">
 		<div class="article-list-box normal-box">
 			<div class="control-bar">
+				<div class="list-title pull-left">
+					所有分享
+				</div>
 				<div class="pull-right">
 					<%= link_to raw("<span class='glyphicon glyphicon-edit'></span> 发表分享"), new_article_path, class: "btn btn-primary" %>
-					<!-- <a href="#" class="btn btn-primary "><span class="glyphicon glyphicon-edit"></span> 发表分享</a> -->
 				</div>
 			</div>
 
-			<div class="article-list">
-				<% @articles.each do |article| %>
-					<div class="article-item ">
-						<div class="title">
-							<%= link_to article.title, article %>
-						</div>
-						<div class="info">
-							<a href="#"><%= article.user.username %></a> 发表于 <%= time_ago_in_words article.created_at %>, 
-							<span class="glyphicon glyphicon-comment"></span> 12 
-							<span class="glyphicon glyphicon-eye-open"></span> 14
-						</div>
-					</div>
-				<% end %>
+			<%= render "articles/articles" %>
 
-			</div>
-			<!-- article-list end -->
 
-			<div class="page">
-				<ul class="pagination">
-				  <li><a href="#">&laquo;</a></li>
-				  <li><a href="#">1</a></li>
-				  <li><a href="#">2</a></li>
-				  <li><a href="#">3</a></li>
-				  <li><a href="#">4</a></li>
-				  <li><a href="#">5</a></li>
-				  <li><a href="#">&raquo;</a></li>
-				</ul>
-			</div>
 
 		</div>
+	</div>
+
+	<div class="col-md-3">
+
+		<%= render 'shared/cate_list' %>
+
+
+		<%= render 'shared/tag_list' %>
+
 
 
 
 	</div>
+
+
+
 </div>
 
 <div class="row">

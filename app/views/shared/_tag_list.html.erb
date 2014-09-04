@@ -1,0 +1,13 @@
+<div class="tag-list-box normal-box">
+	<div class="title">
+		标签
+	</div>
+	<ul class="tag-list no-point-list no-space-list">
+		<% tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
+		  <li>
+		  	<%= link_to tag.name, tag_articles_path(:tag_name => tag.name), :class => css_class %>
+		  </li>
+		<% end %>
+
+	</ul>
+</div>

@@ -1,0 +1,12 @@
+<div class="cate-list-box normal-box">
+	<div class="title">
+		分类
+	</div>
+	<ul class="cate-list no-point-list no-space-list">
+		<% @categories.each do |category| %>
+			<li>
+				<%= link_to category.name, category %>
+			</li>
+		<% end %>
+	</ul>
+</div>
