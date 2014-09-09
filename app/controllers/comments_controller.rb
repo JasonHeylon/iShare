@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
 
 	before_action :authenticate_user!
+  before_action :only_self_comment, only: [:edit, :update, :destroy]
 
   def create
   	@article = Article.find(params[:article_id])
@@ -17,13 +18,13 @@ class CommentsController < ApplicationController
 
 
   def edit
-  	@article = Article.find(params[:article_id])
-  	@comment = @article.comment_threads.find(params[:id])
+  	
+  	# @comment = @article.comment_threads.find(params[:id])
   end
 
   def update
-  	@article = Article.find(params[:article_id])
-  	@comment = @article.comment_threads.find(params[:id])
+  	# @article = Article.find(params[:article_id])
+  	# @comment = @article.comment_threads.find(params[:id])
   	
   	if @comment.update(comment_params)
   		flash[:success] = "更新成功！"
@@ -36,8 +37,8 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-  	@article = Article.find(params[:article_id])
-  	@comment = @article.comment_threads.find(params[:id])
+  	# @article = Article.find(params[:article_id])
+  	# @comment = @article.comment_threads.find(params[:id])
   	if @comment.destroy
   		flash[:success] = "删除成功！"
   		redirect_to @article
@@ -54,5 +55,10 @@ class CommentsController < ApplicationController
   		params.require(:comment).permit(:body)
   	end
 
+    def only_self_comment
+      @article = Article.find(params[:article_id])
+      @comment = @article.comment_threads.find(params[:id])
+      redirect_to articles_path unless current_user == @article.user
+    end
 
 end

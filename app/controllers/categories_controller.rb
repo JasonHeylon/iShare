@@ -6,6 +6,14 @@ class CategoriesController < ApplicationController
 		@tags = Article.tag_counts_on(:tags)
 	end
 
+	def index
+		@categories = Category.all	
+	end
+
+	def new
+		
+	end
+
 
 	private
 		def category_params

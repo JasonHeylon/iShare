@@ -3,15 +3,28 @@
 		<div class="article-item ">
 			<div class="title">
 				<%= link_to article.title, article %>
+				<% if article.attached_file? %>
+					<i class="fa fa-paperclip" style="font-size:18px;color: #428bca"></i>
+				<% end %>
+			</div>
+
+			<div class="tags">
+				<%# article.tags.each do |tag| %>
+					<!-- <ul> -->
+						<!-- <li><span class="label label-primary"> -->
+							<%#= link_to tag.name, tag_articles_path(tag_name: tag.name) %>
+						<!-- </span></li> -->
+					<!-- </ul> -->
+				<%# end %>
 			</div>
 			<div class="info">
+
 				<a href="#"><%= article.user.username %></a> 发表于 <%= time_ago_in_words article.created_at %>,  
-				<% if article.attached_file? %>
-					<i class="fa fa-paperclip"></i>有附件
-				<% end %>
 				
 				<span class="glyphicon glyphicon-comment"></span> <%= article.comment_threads.size %> 
 				<span class="glyphicon glyphicon-eye-open"></span> <%= article.read_count %>
+
+				
 			
 			</div>
 		</div>

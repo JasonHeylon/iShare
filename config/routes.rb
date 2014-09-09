@@ -22,6 +22,8 @@ Rails.application.routes.draw do
     match "/download_attached_file", to: "articles#download_attached_file", via: :post, as: :download_attached_file, on: :member
     match "/delete_attached_file", to: "articles#remove_attached_file", via: :delete, as: :delete_attached_file, on: :member
 
+    # match "/keywords/:key_words", to: "articles#search", via: :get, as: :search, on: :collection
+
     resources :comments, only: [:create, :edit, :update, :destroy]
 
     # get 'article_attachments/new', on: :member

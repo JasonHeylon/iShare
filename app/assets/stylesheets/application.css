@@ -17,6 +17,7 @@
  *= bootstrap-tagsinput
 
  *= require jquery.fileupload-ui
+ *= require nprogress
 
  *= require base
  *= require_self

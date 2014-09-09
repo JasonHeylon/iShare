@@ -1,12 +1,16 @@
 class ArticlesController < ApplicationController
-	before_action :authenticate_user!, only: [:new, :create]
+	before_action :authenticate_user!, only: [:new, :create, :download_attached_file]
 	before_action :add_read_count, only: :show
-	before_action :edit_only_my_article, only: [:edit, :update]
+	before_action :edit_only_my_article, only: [:edit, :update, :destroy, :remove_attached_file]
 
 	def index
-		@articles = Article.includes(:user).paginate(page: params[:page], per_page: 10)
 		@tags = Article.tag_counts_on(:tags)
 		@categories = Category.all
+
+		# @articles = Article.includes(:user).paginate(page: params[:page], per_page: 10)
+		@articles = Article.includes(:user).search(params[:keyword])
+										 .paginate(page: params[:page], per_page: 20)
+		@search_title = params[:keyword]
 	end
 
 	def show
@@ -24,7 +28,7 @@ class ArticlesController < ApplicationController
 			flash[:success] = "发布成功！"
 			redirect_to @article
 		else
-			flash.now[:error] = "发布失败!"
+			flash.now[:error] = "发布失败, 请检查表单!"
 			render "new"
 		end
 	end
@@ -43,6 +47,13 @@ class ArticlesController < ApplicationController
 		end
 
 	end
+
+	def destroy
+		@article.destroy
+		flash[:success] = "删除成功!"
+		redirect_to articles_path
+	end
+
 
 	def download_attached_file
 		@article = Article.find(params[:id])
