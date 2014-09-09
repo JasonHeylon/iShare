@@ -17,7 +17,6 @@
 
 //= require bootstrap-tagsinput
 
-//= require jquery-fileupload
 //= require nprogress
 
 //= require turbolinks_transitions
