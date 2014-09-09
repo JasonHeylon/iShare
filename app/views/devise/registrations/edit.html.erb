@@ -9,11 +9,15 @@
         <%= devise_error_messages! %>
 
         <div><%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, class: "form-control" %></div>
-
+        <%= f.email_field :email, autofocus: true, class: "form-control",  readonly: "readonly", disabled: "disabled" %></div>
+        
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
           <div>当前正在等待邮箱验证: <%= resource.unconfirmed_email %></div>
         <% end %>
+        <div>
+          <%= f.label :username, "用户名" %> <i>(显示名)</i><br />
+          <%= f.text_field :username, class: "form-control" %>
+        </div>
 
         <div><%= f.label :password, "新密码" %> <i>(如果不修改密码请留空)</i><br />
           <%= f.password_field :password, autocomplete: "off", class: "form-control" %></div>
