@@ -7,5 +7,5 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-User.create!(email: "admin@admin.com", password:"heylon", username: "admin")
+User.create!(email: "admin@admin.com", password:"heylon", username: "admin", is_admin: true)
 User.create!(email: "heylon@heylon.com", password:"heylon", username: "heylon")
