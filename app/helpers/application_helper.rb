@@ -19,4 +19,8 @@ module ApplicationHelper
 
     markdown.render(text).html_safe
 	end
+
+  def is_admin?
+    current_user.present? && current_user.is_admin?
+  end
 end

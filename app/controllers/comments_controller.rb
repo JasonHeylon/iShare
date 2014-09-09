@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
 
 	before_action :authenticate_user!
-  before_action :only_self_comment, only: [:edit, :update, :destroy]
+  before_action :only_self_or_admin_comment, only: [:edit, :update, :destroy]
 
   def create
   	@article = Article.find(params[:article_id])
@@ -55,10 +55,10 @@ class CommentsController < ApplicationController
   		params.require(:comment).permit(:body)
   	end
 
-    def only_self_comment
+    def only_self_or_admin_comment
       @article = Article.find(params[:article_id])
       @comment = @article.comment_threads.find(params[:id])
-      redirect_to articles_path unless current_user == @article.user
+      redirect_to articles_path unless current_user == @comment.user || current_user.is_admin?
     end
 
 end

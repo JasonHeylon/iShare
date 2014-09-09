@@ -1,0 +1,39 @@
+<div class="row">
+	<div class="col-md-12">
+		<div class=" normal-box">
+			<div class="control-bar">
+				<%= link_to "新增分类", new_category_path, class: "btn btn-primary pull-right" %>
+			</div>
+			<table class="table table-hovered">
+				<thead>
+					<tr>
+						<th>名称</th>
+						<th>创建时间</th>
+						<th>最新更新</th>
+						<th>分享文章数量</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<% @categories.each do |category| %>
+						<tr>
+							<td><%= category.name %></td>
+							<td><%= time_ago_in_words category.created_at %></td>
+							<td><%= time_ago_in_words category.updated_at %></td>
+							<td><%= category.articles.size %></td>
+							<td>
+								<%= link_to "编辑", edit_category_path(category) %>
+								<%= link_to "删除", category_path(category), method: :delete, data: { confirm: "确定删除？" } %>
+							</td>
+						</tr>
+						
+					<% end %>
+				</tbody>
+			</table>
+
+
+		</div>
+	</div>
+</div>
+

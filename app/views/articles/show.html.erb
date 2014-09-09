@@ -3,7 +3,7 @@
 		<div class="article-show-box normal-box">
 			<div class="title">
 				<%= @article.title %>
-				<% if user_signed_in? && current_user == @article.user %>
+				<% if (user_signed_in? && current_user == @article.user) || is_admin? %>
 					<span class="pull-right">
 						<%= link_to "编辑", edit_article_path(@article), class: "btn btn-primary" %>
 					</span>
@@ -52,7 +52,7 @@
 							<div class="comment-control">
 								<ul class="no-space-list no-point-list ho-list">
 									<!-- <li><a href="#">回复</a></li> -->
-									<% if user_signed_in? && current_user == c.user %>
+									<% if (user_signed_in? && current_user == c.user) || current_user.is_admin? %>
 										<li>
 											<%= link_to "删除", article_comment_path(@article, c), method: :delete, data: { confirm: "确认删除？" } %>
 										</li>
@@ -115,9 +115,16 @@
 			<div class="title">
 				相关分享
 			</div>
-			<p><a href="#">test</a></p>
-			<p><a href="#">second</a></p>
-			<p><a href="#">last</a></p>
+			<% if @related_articles.any? %>
+				<% @related_articles.each do |article| %>
+					<p>
+						<%= link_to article.title, article %>
+					</p>
+				<% end %>
+			<% else %>
+				<p style="text-align: center; color: #888;margin-top: 10px;">暂无记录</p>
+			<% end %>
+
 		</div>
 	</div>
 

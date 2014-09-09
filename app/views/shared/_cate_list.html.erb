@@ -1,6 +1,9 @@
 <div class="cate-list-box normal-box">
 	<div class="title">
 		分类
+		<% if current_user && current_user.is_admin? %>
+			<%= link_to "编辑",categories_path, class: "pull-right" %>
+		<% end %>
 	</div>
 	<ul class="cate-list no-point-list no-space-list">
 		<% @categories.each do |category| %>

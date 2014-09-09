@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
 	before_action :authenticate_user!, only: [:new, :create, :download_attached_file]
 	before_action :add_read_count, only: :show
-	before_action :edit_only_my_article, only: [:edit, :update, :destroy, :remove_attached_file]
+	before_action :only_self_or_admin_article, only: [:edit, :update, :destroy, :remove_attached_file]
 
 	def index
 		@tags = Article.tag_counts_on(:tags)
@@ -14,7 +14,9 @@ class ArticlesController < ApplicationController
 	end
 
 	def show
-		
+		@related_articles = @article.find_related_tags.take(10)
+		# remain = 10 - @related_articles.size
+		# @related_articles.join(@article.categories.limit(remain))
 	end
 
 	def new
@@ -83,9 +85,9 @@ class ArticlesController < ApplicationController
 			@article.update(read_count: @article.read_count + 1)
 		end
 
-		def edit_only_my_article
+		def only_self_or_admin_article
 			@article = Article.find(params[:id])
-			redirect_to root_path  unless current_user && current_user == @article.user
+			redirect_to root_path  unless current_user && current_user == @article.user || current_user.is_admin?
 		end
 
 
