@@ -21,6 +21,8 @@ gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
 gem "font-awesome-rails"
 
+gem 'turbolinks_transitions'
+
 
 
 gem 'jquery-rails'

@@ -20,6 +20,8 @@
 //= require jquery-fileupload
 //= require nprogress
 
+//= require turbolinks_transitions
+
 //= require_tree .
 
 
