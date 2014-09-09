@@ -14,7 +14,8 @@ gem 'bootstrap-will_paginate'
 
 gem 'redcarpet'
 
-
+gem "jquery-fileupload-rails"
+gem 'carrierwave', '~> 0.10.0'
 
 gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'

@@ -6,8 +6,13 @@
 			</div>
 			<div class="info">
 				<a href="#"><%= article.user.username %></a> 发表于 <%= time_ago_in_words article.created_at %>,  
+				<% if article.attached_file? %>
+					<i class="fa fa-paperclip"></i>有附件
+				<% end %>
+				
 				<span class="glyphicon glyphicon-comment"></span> <%= article.comment_threads.size %> 
 				<span class="glyphicon glyphicon-eye-open"></span> <%= article.read_count %>
+			
 			</div>
 		</div>
 	<% end %>

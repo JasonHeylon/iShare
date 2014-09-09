@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   has_many :articles
   has_many :comments
+	has_many :article_attachments
 
   validates :username, presence: true, length: {maximum: 50}
   

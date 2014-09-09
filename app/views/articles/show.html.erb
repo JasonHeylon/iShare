@@ -17,6 +17,11 @@
 			<article class="article-body">
 				<%= markdown(@article.body) %>
 			</article>
+			<div class="attached_file_list">
+				<% if @article.attached_file? %>
+					<%= link_to raw("<i class='fa fa-paperclip'></i>下载附件"), download_attached_file_article_path(@article), method: :post %>
+				<% end %>
+			</div>
 			<div class="tag-list">
 				<ul class="tags">
 					<% @article.tags.each do |tag| %>

@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140904131209) do
+ActiveRecord::Schema.define(version: 20140909060130) do
+
+  create_table "article_attachments", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "article_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "attached_file"
+  end
+
+  add_index "article_attachments", ["article_id"], name: "index_article_attachments_on_article_id"
+  add_index "article_attachments", ["user_id"], name: "index_article_attachments_on_user_id"
 
   create_table "articles", force: true do |t|
     t.string   "title"
@@ -22,7 +33,8 @@ ActiveRecord::Schema.define(version: 20140904131209) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "category_id"
-    t.integer  "read_count",  default: 0
+    t.integer  "read_count",    default: 0
+    t.string   "attached_file"
   end
 
   add_index "articles", ["category_id"], name: "index_articles_on_category_id"

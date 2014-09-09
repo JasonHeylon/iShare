@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  
+
   get 'comments/create'
 
   get 'comments/new'
@@ -17,9 +19,15 @@ Rails.application.routes.draw do
   resources :articles do
 
     match "/tags/:tag_name", to: "tags#show", via: :get, as: :tag, on: :collection
-
+    match "/download_attached_file", to: "articles#download_attached_file", via: :post, as: :download_attached_file, on: :member
+    match "/delete_attached_file", to: "articles#remove_attached_file", via: :delete, as: :delete_attached_file, on: :member
 
     resources :comments, only: [:create, :edit, :update, :destroy]
+
+    # get 'article_attachments/new', on: :member
+    #post 'article_attachments',via: :post, as: :article_attachment , on: :member
+
+    resources :article_attachments, on: :member, only: [:new, :create, :edit, :update, :destroy]
 
     # match "/comments", to: "comments#create", via: :post, as: :comment, on: :member
 
@@ -30,7 +38,7 @@ Rails.application.routes.draw do
   end
 
   resources :categories
-
+  resources :article_attachments, only: [:index, :create, :destroy]
 
 
   # The priority is based upon order of creation: first created -> highest priority.

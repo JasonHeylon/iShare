@@ -17,4 +17,6 @@
 
 //= require bootstrap-tagsinput
 
+//= require jquery-fileupload
+
 //= require_tree .

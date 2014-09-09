@@ -1,4 +1,4 @@
-<%= form_for @article do |f| %>
+<%= form_for @article, html: { multipart: true } do |f| %>
 				<p>
 					<%= f.label :title, "标题(必填，小于50字符)"  %><br />
 					<%= f.text_field :title, class: "form-control" %>
@@ -16,9 +16,34 @@
 					<%= f.label :tag_list, "标签（可选，用逗号间隔）" %><br />
 					<%= f.text_field :tag_list, "data-role" => "tagsinput" %>
 				</p>
+
+				<p>
+					<%#= f.fields_for :article_attachments do |builder| %>
+				    <%#= render "attachments_fields", :f => builder %>
+				  <%# end %>
+				</p>
+				<% if @article.new_record? || @article.attached_file.url.nil? %>
+					<p>
+						<%= f.label :attached_file, "添加附件" %>
+						<%= f.file_field :attached_file %>
+					</p>
+				<% else %>
+					<p>
+						<%= f.label :attached_file, "附件" %><br />
+						<%= link_to raw("<i class='fa fa-paperclip'></i>下载当前附件"), download_attached_file_article_path(@article), method: :post %>
+						|
+						<%= link_to raw("<i class='fa fa-trash'></i>删除"), delete_attached_file_article_path(@article), method: :delete, data: {confirm: "确定删除附件？"} %>
+					</p>
+				<% end %>
+			
+
+
 				<br />
 				<p>
 					<%= f.submit "保存", class: "btn btn-success", data: { disable_with: "保存中..." } %>
 				</p> 
 
 			<% end %>
+
+
+

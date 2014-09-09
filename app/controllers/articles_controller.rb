@@ -19,6 +19,7 @@ class ArticlesController < ApplicationController
 
 	def create
 		@article = current_user.articles.new(article_params)
+		# @article.attached_file = params[:article][:attached_file]
 		if @article.save
 			flash[:success] = "发布成功！"
 			redirect_to @article
@@ -43,13 +44,28 @@ class ArticlesController < ApplicationController
 
 	end
 
+	def download_attached_file
+		@article = Article.find(params[:id])
+		send_file @article.attached_file.current_path
+		# render 'show'
+	end
+
+	def remove_attached_file
+		@article = Article.find(params[:id])
+		@article.remove_attached_file!
+		@article.save
+		flash[:success] = "已经删除附件！"
+		redirect_to @article
+	end
+
 
 
 
 	private
 		def article_params
-			params.require(:article).permit(:title, :body, :tag_list)
+			params.require(:article).permit(:title, :body, :tag_list, :category_id, :attached_file)
 		end
+
 
 		def add_read_count
 			@article = Article.find(params[:id])

@@ -16,6 +16,8 @@
  *= require font-awesome
  *= bootstrap-tagsinput
 
+ *= require jquery.fileupload-ui
+
  *= require base
  *= require_self
 

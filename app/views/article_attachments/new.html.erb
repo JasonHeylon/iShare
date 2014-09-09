@@ -1,0 +1,13 @@
+
+<%= form_for [@article, @attachment] do |f| %>
+
+	<%= f.label :attached_file %>
+	<%= f.file_field :attached_file %>
+	<br />
+
+	<%= f.submit %>
+<% end %>
+
+
+
+

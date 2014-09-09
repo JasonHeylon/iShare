@@ -1,0 +1,2 @@
+module ArticleAttachmentsHelper
+end
