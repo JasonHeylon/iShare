@@ -1,0 +1,54 @@
+
+
+<div class="row">
+
+	<div class="col-md-10">
+		<div class="user-list-box normal-box">
+			<div class="control-bar">
+				<span class="title">用户管理</span>
+				<%= link_to "新增人员", new_admin_user_path, class: "btn btn-primary pull-right" %>
+			</div>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>用户邮箱</th>
+						<th>用户名</th>
+						<th>是否管理员</th>
+						<th>创建时间</th>
+						<th>上次登录时间</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @users.each do |user| %> 
+					<tr>
+						<td><%= user.email %></td>
+						<td><%= user.username %></td>
+						<td>
+							<% if user.is_admin? %>
+								是
+							<% else %>
+								否
+							<% end %>
+							
+						</td>
+						<td><%= user.created_at.strftime("%Y年%m月%d日 %H:%M:%S") %></td>
+						<td><%= user.last_sign_in_at.strftime("%Y年%m月%d日 %H:%M:%S") %></td>
+						<td>
+							<%= link_to "删除", admin_user_path(user), class: "btn btn-danger btn-xs", method: :delete, data: { confirm: "确定删除？" } %>
+							<%= link_to "编辑", edit_admin_user_path(user), class: "btn btn-info btn-xs" %>
+						</td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+			
+		<div class="center">
+			<%= will_paginate @articles %>
+		</div>
+
+		</div>
+
+	</div>
+
+</div>

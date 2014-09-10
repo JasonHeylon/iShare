@@ -1,0 +1,18 @@
+			<%= form_for @user, url: admin_user_path do |f| %>
+				<p>
+					<%= f.label :username, "用户姓名" %> <br />
+					<%= f.text_field :username, class: "form-control" %>
+				</p>
+				<p>
+					<%= f.label :email, "用户邮箱" %> <br />
+					<%= f.text_field :email, class: "form-control" %>
+				</p>
+				<p>
+					<%= f.label :is_admin, "是否管理员" %> 
+					<%= f.check_box :is_admin %>
+				</p>
+				<br />
+				<p>
+					<%= f.submit "保存", class: "btn btn-primary" %>
+				</p>
+			<% end %>

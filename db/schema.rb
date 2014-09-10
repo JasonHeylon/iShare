@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140909085900) do
+ActiveRecord::Schema.define(version: 20140910084554) do
 
   create_table "article_attachments", force: true do |t|
     t.integer  "user_id"
@@ -99,9 +99,13 @@ ActiveRecord::Schema.define(version: 20140909085900) do
     t.datetime "updated_at"
     t.string   "username"
     t.boolean  "is_admin"
+    t.integer  "failed_attempts",        default: 0,  null: false
+    t.string   "unlock_token"
+    t.datetime "locked_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["unlock_token"], name: "index_users_on_unlock_token", unique: true
 
 end
