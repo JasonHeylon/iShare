@@ -14,10 +14,9 @@
 
  *= require bootstrap
  *= require font-awesome
- *= bootstrap-tagsinput
 
  *= require nprogress
-
+ *= require bootstrap-tagsinput
  *= require base
  *= require_self
 
